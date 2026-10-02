@@ -25,13 +25,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
           languages: java
 
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v3
+      - name: Compile Java code
+        run: |
+          javac Main.java
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
