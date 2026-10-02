@@ -24,9 +24,4 @@ jobs:
         run: |
           cd myapp
           java Main
-
-      # - name: Run python program
-        #run: |
-          #cd myapp
-          #python first.py */
      
