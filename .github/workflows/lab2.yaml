@@ -3,9 +3,9 @@ name: Java Lab Workflow
 on:
   push:
     branches:
-      - main
+      - master
 
-  workflow_dispatch:
+  workflow_dispatch: # Allows manual trigger from GitHub UI
 
 jobs:
   build-and-run:
@@ -13,13 +13,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '17'
+        uses: actions/checkout@v3
 
       - name: Compile Java code
         run: |
@@ -30,3 +24,9 @@ jobs:
         run: |
           cd myapp
           java Main
+
+      - name: Run python program
+        run: |
+          cd myapp
+          python first.py 
+     
