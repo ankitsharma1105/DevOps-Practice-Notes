@@ -5,15 +5,10 @@ on:
     branches:
       - main
 
-  pull_request:
-    branches:
-      - main
-
   workflow_dispatch:
 
 jobs:
   security-scan:
-    name: CodeQL Security Scan
     runs-on: ubuntu-latest
 
     permissions:
@@ -36,9 +31,10 @@ jobs:
         with:
           languages: java
 
-      - name: Compile Java code
+      - name: Compile Java
         run: |
+          cd myapp
           javac Main.java
 
-      - name: Perform CodeQL Analysis
+      - name: CodeQL Analysis
         uses: github/codeql-action/analyze@v3
