@@ -1,0 +1,18 @@
+name: Java Container Lab
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-container:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t java-lab:latest .
+
+      - name: Run container
+        run: docker run --rm java-lab:latest
