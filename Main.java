@@ -6,8 +6,5 @@ public class Main {
         System.out.println("This is my second line of the java program");
         System.out.println("This is my third line of the java program");
 
-
-
     }
-
 }
